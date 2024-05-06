@@ -1,0 +1,45 @@
+.header {
+  padding: 20px 20px;
+  background-color: #333;
+  color: #fff;
+  transition: all 0.5s ease;
+}
+
+.header.search-open {
+  background-color: #8b6969;
+}
+
+.header .header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+.logo-text a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.nav {
+  margin-inline-end: 1rem;
+  cursor: pointer;
+}
+
+.divider {
+  width: 90%;
+  height: 1px;
+  background-color: #cccccc50;
+  margin: 16px auto;
+}

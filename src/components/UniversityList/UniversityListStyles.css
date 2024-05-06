@@ -1,0 +1,159 @@
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  border: 0.0625rem solid #e0e0e0;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+th {
+  background-color: #f8f8f8;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+td {
+  font-size: 1rem;
+}
+
+tr:hover {
+  background-color: #eaeaea;
+}
+
+td:first-child {
+  min-width: 8rem;
+  max-width: 20rem;
+  width: 10%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+td.no-data,
+td.loading {
+  text-align: center;
+  font-size: 1rem;
+  padding: 1.5rem;
+}
+td a {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #c82333;
+}
+
+/* tablet responsive */
+@media (max-width: 768px) {
+  th,
+  td {
+    white-space: nowrap;
+    min-width: 7.5rem;
+  }
+}
+
+/* mobile responsive */
+@media (max-width: 768px) {
+  th {
+    font-size: 0.9rem;
+  }
+  td {
+    font-size: 0.8rem;
+  }
+}
+
+/* sorting css */
+th.sortable {
+  position: relative;
+  cursor: pointer;
+}
+
+th.sortable::after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 4px 0 4px; /* Adjust arrow size */
+  border-color: transparent transparent transparent transparent;
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  opacity: 0.3;
+}
+
+th.sortable.asc::after {
+  border-width: 0 4px 5px 4px;
+  border-color: transparent transparent #000 transparent; /* Change arrow color */
+}
+
+th.sortable.desc::after {
+  border-width: 5px 4px 0 4px;
+  border-color: #000 transparent transparent transparent; /* Change arrow color */
+}
+
+/* loader css */
+td.loading {
+  color: #1c4c5b;
+  text-align: -webkit-center;
+}
+td.loading:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6.4px solid currentColor;
+  border-color: currentColor transparent currentColor transparent;
+  animation: loading 1.2s linear infinite;
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* deletion animation */
+.deleted-row {
+  animation: rowFadeOut 0.5s forwards;
+}
+@keyframes rowFadeOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%); /* Adjust the distance and direction */
+  }
+}
