@@ -49,6 +49,7 @@ function UniversityController() {
   // search through all universities
   const searchedUniversities = useMemo(() => {
     if (!searchTerm) return universities;
+
     return universities.filter(
       (u) =>
         u.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -104,7 +105,11 @@ function UniversityController() {
     error,
     isLoading,
     totalPages,
+    searchTerm,
+    searchedUniversities,
+    universities,
     handleSearch,
+    setUniversities,
     handleSort,
     handleDelete,
   };
@@ -124,6 +129,7 @@ function hashDomainToId(domain) {
 
 function decryptIdToDomain(id) {
   // Simulate decryption of the hashed ID (reverse the process)
+  if (typeof id !== "string") return id;
   const domain = id.split("").reverse().join("").replace(/_/g, ".");
 
   return domain;
